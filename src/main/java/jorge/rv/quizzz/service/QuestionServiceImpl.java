@@ -1,5 +1,7 @@
 package jorge.rv.quizzz.service;
 
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -42,12 +44,15 @@ public class QuestionServiceImpl implements QuestionService {
 	@Override
 	public Question find(Long id) throws ResourceUnavailableException {
 		Question question = questionRepository.findOne(id);
+		// ArrayList<Question>q=(ArrayList<Question>) questionRepository.findAll();
+		ArrayList<Question> q2 = new ArrayList<Question>(questionRepository.findAll());
+		System.out.println(q2);
 
 		if (question == null) {
 			logger.error("Question " + id + " not found");
 			throw new ResourceUnavailableException("Question " + id + " not found");
 		}
-
+		System.out.println(question.getText());
 		return question;
 	}
 
