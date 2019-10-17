@@ -1,7 +1,7 @@
 package jorge.rv.quizzz.service;
 
 import java.util.ArrayList;
-import java.util.Iterator;
+import java.util.Collections;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -43,17 +43,28 @@ public class QuestionServiceImpl implements QuestionService {
 
 	@Override
 	public Question find(Long id) throws ResourceUnavailableException {
-		Question question = questionRepository.findOne(id);
-		// ArrayList<Question>q=(ArrayList<Question>) questionRepository.findAll();
-		ArrayList<Question> q2 = new ArrayList<Question>(questionRepository.findAll());
-		System.out.println(q2);
-
-		if (question == null) {
-			logger.error("Question " + id + " not found");
-			throw new ResourceUnavailableException("Question " + id + " not found");
-		}
-		System.out.println(question.getText());
+		 Question question = questionRepository.findOne(id);
+//		Question question = null;
+//		// ArrayList<Question>q=(ArrayList<Question>) questionRepository.findAll();
+//		ArrayList<Question> q2 = new ArrayList<Question>(questionRepository.findAll());
+//		for (int counter = 0; counter < q2.size(); counter++) {
+//			System.out.println("before shuffle " + q2.get(counter));
+//		}
+//		Collections.shuffle(q2);
+//		// System.out.println(q2);
+//		for (int counter = 0; counter < q2.size(); counter++) {
+//			System.out.println("after shuffle forloop " + q2.get(counter));
+//			question = q2.get(counter);
+////			if (question == null) {
+////				logger.error("Question " + id + " not found");
+////				throw new ResourceUnavailableException("Question " + id + " not found");
+////			}
+//			//System.out.println(question.getText());
+//
+//		}
+		//System.out.println(question.getText());
 		return question;
+		
 	}
 
 	@Override
