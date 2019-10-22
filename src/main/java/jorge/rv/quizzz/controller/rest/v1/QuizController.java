@@ -112,9 +112,10 @@ public class QuizController {
 			@RequestParam(required = false, defaultValue = "false") Boolean onlyValid) {
 
 		Quiz quiz = quizService.find(quiz_id);
+		int q = quiz_id.intValue(); 
 
 		if (onlyValid) {
-			return questionService.findValidQuestionsByQuiz(quiz);
+			return (List<Question>) questionService.findValidQuestionsByQuiz(q);
 		} else {
 			return questionService.findQuestionsByQuiz(quiz);
 		}

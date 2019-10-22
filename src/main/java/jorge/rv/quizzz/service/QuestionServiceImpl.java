@@ -108,8 +108,9 @@ public class QuestionServiceImpl implements QuestionService {
 	}
 
 	@Override
-	public List<Question> findValidQuestionsByQuiz(Quiz quiz) {
-		return questionRepository.findByQuizAndIsValidTrueOrderByOrderAsc(quiz);
+	public List<Question> findValidQuestionsByQuiz(int quiz) {
+		System.out.println(quiz);
+		return questionRepository.findByQuizAndIsValidTrueOrderByOrderAsc1(quiz);
 	}
 
 	@Override

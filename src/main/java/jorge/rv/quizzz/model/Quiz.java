@@ -19,6 +19,12 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @Table(name = "quiz")
 public class Quiz extends BaseModel implements UserOwned {
 
+	@Override
+	public String toString() {
+		return "Quiz [createdBy=" + createdBy + ", name=" + name + ", description=" + description + ", questions="
+				+ questions + ", createdDate=" + createdDate + ", isPublished=" + isPublished + "]";
+	}
+
 	@OneToOne
 	@JsonIgnore
 	private User createdBy;

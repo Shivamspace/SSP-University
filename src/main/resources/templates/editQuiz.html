@@ -39,15 +39,20 @@
 							    dnd-moved="questions.splice($index, 1)"
 							    dnd-effect-allowed="move">
 								
-								<div class="col-sm-9">
+								<div class="col-sm-6">
 									<div class="input-group">
 										<span class="input-group-addon" id="draggable-addon">::</span>
+										
 										<input th:placeholder="#{label.editquiz.text.placeholder}" class="form-control"  aria-describedby="draggable-addon" ng-model="question.text"/>
+									
 									</div>
 								</div>
+							<div class="col-sm-3">
+							<select ng-model="question.difficulty" ng-options="item for item in names" class="form-control" ></select>
+							</div>
 								<div class="col-sm-3">
 									<div class="btn-group">
-										<button class="btn btn-primary" ng-click="saveQuestion(question.id, question.text)">
+										<button class="btn btn-primary" ng-click="saveQuestion(question.id, question.text,selected)">
 											<span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>
 										</button>
 										<a href="/editAnswer/{{question.id}}" class="btn btn-primary">
@@ -70,6 +75,9 @@
 									<div class="input-group">
 										<span class="input-group-addon" id="not-draggable-addon">X</span>
 										<input th:placeholder="#{label.editquiz.text.placeholder}" class="form-control"  aria-describedby="not-draggable-addon" ng-model="newQuestion"/>
+																			<select ng-model="selected" ng-options="item for item in names" class="form-control" ></select>
+									
+									
 									</div>
 								</div>
 								<div class="col-sm-3">

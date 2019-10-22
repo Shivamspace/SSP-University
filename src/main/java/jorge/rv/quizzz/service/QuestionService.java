@@ -2,6 +2,8 @@ package jorge.rv.quizzz.service;
 
 import java.util.List;
 
+import org.springframework.data.jpa.repository.Query;
+
 import jorge.rv.quizzz.exceptions.ResourceUnavailableException;
 import jorge.rv.quizzz.exceptions.UnauthorizedActionException;
 import jorge.rv.quizzz.model.Answer;
@@ -13,9 +15,13 @@ public interface QuestionService {
 
 	Question find(Long id) throws ResourceUnavailableException;
 
+
 	List<Question> findQuestionsByQuiz(Quiz quiz);
 
-	List<Question> findValidQuestionsByQuiz(Quiz quiz);
+
+	List<Question> findValidQuestionsByQuiz(int quiz);
+	
+
 
 	Question update(Question question) throws ResourceUnavailableException, UnauthorizedActionException;
 

@@ -3,6 +3,7 @@
 	var app = angular.module("editApp", ['dndLists']);
 
 	var editCtrl = function($scope, $http) {
+		$scope.names = ["HARD", "MEDIUM", "EASY"];
 		
 		$scope.isQuizSaving = false;
 		$scope.isPublishing = false;
@@ -63,7 +64,7 @@
 				url = url + "/" + questionId;
 			}
 
-			$http.post(url + "?text=" + questionText + "&quiz_id=" + $scope.quizId)
+			$http.post(url + "?text=" + questionText + "&quiz_id=" + $scope.quizId+"&difficulty=" + $scope.selected)
 			.then(
 					function(response) {
 						console.log(response.data);
@@ -98,6 +99,9 @@
 					}
 			);
 		}
+//		$scope.on = function(selected){
+//			console.log(selected)
+//		}
 		
 		$scope.publish = function() {
 			var url = "/api/quizzes/" + $scope.quizId + "/publish";
@@ -146,4 +150,5 @@
 
 	app.controller("EditCtrl", ["$scope", "$http", editCtrl]);
 
+	//$scope.names = ["Emil", "Tobias", "Linus"];
 }());
